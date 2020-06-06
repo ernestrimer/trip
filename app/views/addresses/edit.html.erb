@@ -1,5 +1,5 @@
 <h1>Update Addresses</h1>
-<%= form_with(model: @location.address, local: true, class: "ui form" ) do |f| %>
+<%= form_with(model: @location, local: true, class: "ui form" ) do |f| %>
   <div class="field">
     <%= f.label :street %>
     <%= f.text_field :street, required: true, placeholder: "street" %>

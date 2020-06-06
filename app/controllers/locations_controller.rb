@@ -19,8 +19,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = @travel.location.new(location_params)
-    if @topic.save
-      redirect_to [@travel, @location]
+    if @location.save
+      redirect_to travel_locations_path(@travel)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update(location_params)
-      redirect_to [@travel, @location]
+      redirect_to travel_location_path(:travel_id)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to travel_locations_path(@travel)
+    redirect_to travel_location_path(:travel_id)
   end
 
 
@@ -51,8 +51,8 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
   
-   def set_travel
-     @travel = Travel.find(params[:id])
-   end
+  def set_travel
+    @travel = Travel.find(params[:id])
+  end
 
 end

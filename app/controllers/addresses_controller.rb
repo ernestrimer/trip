@@ -1,10 +1,10 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :destroy, :update]
-  before_action :set_travel
+  before_action :set_location
   
 
   def index
-    @addresses = @travel.addresses
+    @addresses = @location.addresses
   end
 
   def show
@@ -12,16 +12,16 @@ class AddressesController < ApplicationController
   end
 
   def new
-    @address = @travel.addresses.new
+    @address = @location.addresses.new
   end
 
   def edit
   end
 
   def create
-    @address = @travel.address.new(address_params)
-    if @topic.save
-      redirect_to [@travel, @address]
+    @address = @location.address.new(address_params)
+    if @address.save
+      redirect_to location_address_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to [@travel, @address]
+      redirect_to location_address_path
     else
       render :edit
     end
@@ -45,14 +45,14 @@ class AddressesController < ApplicationController
 private
 
   def address_params
-    params.require(:address).permit(:title, :body)
+    params.require(:address).permit(:street, :state, :city, :zip)
   end
 
-  def set_travel
-    @travel = Travel.find(params[:id])
+  def set_location
+    @location = Location.find(params[:id])
   end
 
   def set_address
-    @address = Address.find(params[:id])
+    @address = Address.find(params[:location_id])
   end
 end
