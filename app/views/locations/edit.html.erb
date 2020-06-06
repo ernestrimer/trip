@@ -1,0 +1,21 @@
+<h1>Locations#edit</h1>
+<p>Find me in app/views/locations/edit.html.erb</p>
+
+<h1>New User/h1>
+
+<%= form_with(model: @user, local: true, class: "ui form") do |f|%>
+<div class = "field">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, required: trie, autofocus: trus %>
+</div>
+
+<div class = "field">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, required: true %>
+</div>
+
+<%= f.submit nil, class: 'ui green button' %>
+  #ui green button from style library
+<% end %>
+
+# can copy into edit also

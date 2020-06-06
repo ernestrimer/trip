@@ -1,0 +1,15 @@
+<h1>Addresses</h1>
+
+<%= link_to 'Update Address', #address path %>
+<hr />
+puts "address.street"
+
+create_table "addresses", force: :cascade do |t|
+  t.string "street"
+  t.string "city"
+  t.string "state"
+  t.string "zip"
+  t.bigint "location_id", null: false
+  t.datetime "created_at", precision: 6, null: false
+  t.datetime "updated_at", precision: 6, null: false
+  t.index ["location_id"], name: "index_addresses_on_location_id"

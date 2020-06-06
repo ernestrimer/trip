@@ -1,0 +1,15 @@
+<h1>Locations Traveled To</h1>
+
+<h1><%= @location.name %></h1>
+<hr >
+<h2>Travels</h2>
+<ul>
+  <% @location.travels.each do |travel| %>
+    <li>
+      <%= link_to travel.name, travel %>
+      # shows all the locations traveled to
+    </li>
+  <% end %>
+</ul>
+<br />
+<%= link_to 'Delete Travel', @travel, method: :delete, class: 'ui red buttom' %>
