@@ -1,25 +1,18 @@
 <h1>Update Addresses</h1>
 <%= form_with(model: @location, local: true, class: "ui form" ) do |f| %>
   <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :name, required: true, placeholder: "First Name" %>
+    <%= f.label :street %>
+    <%= f.text_field :street, required: true, placeholder: "street" %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, required: true, placeholder: "Last Name" %>
+    <%= f.label :city %>
+    <%= f.text_field :city, required: true, placeholder: "city" %>
 
-    <%= f.label :age %>
-    <%= f.text_field :age, required: true, placeholder: "27" %>
+    <%= f.label :state %>
+    <%= f.text_field :state, required: true, placeholder: "state" %>
 
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number, required: true, placeholder: "999-999-9999" %>
+    <%= f.label :zip %>
+    <%= f.text_field :zip, required: true, placeholder: "12345" %>
   </div>
   <%= f.submit nil, class: "ui blue button inverted" %>
 <% end %>
 
-create_table "locations", force: :cascade do |t|
-  t.string "name"
-  t.integer "days"
-  t.bigint "travel_id", null: false
-  t.datetime "created_at", precision: 6, null: false
-  t.datetime "updated_at", precision: 6, null: false
-  t.index ["travel_id"], name: "index_locations_on_travel_id"

@@ -1,15 +1,11 @@
-<h1>Addresses</h1>
+<h1>Address</h1>
 
-<%= link_to 'Update Address', #address path %>
+<%= link_to 'Edit Address', edit_address_path(@address), class: "ui blue button inverted" %>
 <hr />
-puts "address.street"
 
-create_table "addresses", force: :cascade do |t|
-  t.string "street"
-  t.string "city"
-  t.string "state"
-  t.string "zip"
-  t.bigint "location_id", null: false
-  t.datetime "created_at", precision: 6, null: false
-  t.datetime "updated_at", precision: 6, null: false
-  t.index ["location_id"], name: "index_addresses_on_location_id"
+<h2>Street: <%= @address.street %></h2>
+<h2>City: <%= @address.city %></h2>
+<h2>State: <%= @address.state %></h2>
+<h2>zip: <%= @address.zip %></h2>
+
+

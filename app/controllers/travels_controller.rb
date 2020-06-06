@@ -19,6 +19,7 @@ class TravelsController < ApplicationController
       redirect_to travels_path
     else
       render :new
+    end
   end
 
   def edit
@@ -32,15 +33,14 @@ class TravelsController < ApplicationController
     else
       render :edit
     end
-  
+  end
+
   def destroy
     # @travel = Travel.find(params[:id])
     @travel.destroy
     redirect_to travels_path
-  
+  end
   private
-    
-  
     def travel_params
       params.require(:travel).permit(:name, :start_date, :end_date)
     end
