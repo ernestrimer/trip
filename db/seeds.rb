@@ -22,7 +22,8 @@ fut_date_range = [fut_monday, fut_tuesday, today]
     end_date: fut_date_range.sample
   ) 
   @time_until = travel.end_date - travel.start_date
-  @number_of_day = @time_until.to_i + 1
+  #binding.pry
+  @number_of_day = @time_until.to_i / 86400
 
   3.times do
     location = Location.create(

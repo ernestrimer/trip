@@ -1,2 +1,22 @@
-<h1>Travels#show</h1>
-<p>Find me in app/views/travels/show.html.erb</p>
+<h1><%= @travel.name %></h1>
+<hr />
+    <h2>Trip Name: <%= @travel.name %></h2>
+    <h2>Start Date: <%= @travel.start_date %></h2>
+    <h2>Locations</h2>
+    <ul>
+        <% @travel.locations.each do |location| %>
+    <li>
+      <%= link_to location.name, location %>
+    </li>
+  <% end %>
+</ul>
+
+    <h2>End Date: <%= @travel.end_date %></h2>
+
+  
+<br />
+<br />
+<br />
+<%= link_to 'Add Locations', new_travel_location_path(@travel), class: "ui purple button inverted" %>
+<%= link_to 'Delete trip', @travel, method: :delete, class: "ui red button inverted" %>
+<%= link_to 'Edit Trip', edit_travel_path(@travel), class: "ui blue button inverted" %>

@@ -1,21 +1,13 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Add Location</h1>
+<%= form_with(model: @location, local: true, class: "ui form" ) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "Location Traveled To" %>
 
-<h1>New User/h1>
+    <%= f.label :days %>
+    <%= f.text_field :days, required: true  %>
 
-<%= form_with(model: @user, local: true, class: "ui form") do |f|%>
-<div class = "field">
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, required: trie, autofocus: trus %>
-</div>
-
-<div class = "field">
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, required: true %>
-</div>
-
-<%= f.submit nil, class: 'ui green button' %>
-  #ui green button from style library
+  </div>
+  <%= f.submit nil, class: "ui blue button inverted" %>
 <% end %>
 
-# can copy into edit also

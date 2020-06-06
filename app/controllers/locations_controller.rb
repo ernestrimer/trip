@@ -8,16 +8,13 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-
   end
 
   def new
     @location = @travel.locations.new
-    render partial: "form"
   end
 
   def edit
-    render partial: "form"
   end
 
   def create
@@ -44,21 +41,18 @@ class LocationsController < ApplicationController
   end
 
 
-
   private
 
   def location_params
-    params.require(:location).permit(:title, :body)
+    params.require(:location).permit(:name, :days)
   end
-
-  def set_travel
-    @travel = Travel.find(params[:parent_id])
-  end
-
+  
   def set_location
     @location = Location.find(params[:id])
   end
-
-end
+  
+   def set_travel
+     @travel = Travel.find(params[:id])
+   end
 
 end

@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :destroy, :update]
   before_action :set_travel
+  
 
   def index
     @addresses = @travel.addresses
@@ -12,12 +13,9 @@ class AddressesController < ApplicationController
 
   def new
     @address = @travel.addresses.new
-    render partial: "form"
   end
 
   def edit
-    render partial: "form"
-
   end
 
   def create
@@ -51,7 +49,7 @@ private
   end
 
   def set_travel
-    @travel = Travel.find(params[:parent_id])
+    @travel = Travel.find(params[:id])
   end
 
   def set_address
